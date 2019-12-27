@@ -8,6 +8,6 @@ Arquivo de sincronização (query) - banco.sql
 Rodar o banco.sql em um software de gerenciamento para criação das tabelas
 ## Inicialização (desenvolvimento)
 ```sh
-yarn install
+yarn
 yarn dev
 ```
