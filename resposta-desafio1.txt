@@ -1,0 +1,21 @@
+Desafio da semana
+​Desafio 1:
+
+Durante o desenvolvimento do DevShop criamos apenas um nível de categoria.
+Reflita e descreva como você adicionaria a possibilidade de ter sub-categorias.
+Publique sua resposta no grupo de alunos no Facebook para discutirmos sobre quais abordagens possíveis.
+
+1. criar tabela subcategories (subcategorias). Relação 1:n (1-categoria para n-subcategorias)
+  id - pk
+  subcategory - string
+  description - text
+  category_id - fpk
+2. exportar query
+3. sincronizar o banco com a nova tabela
+4. criar algumas subcategorias
+5. fazer query para subcategorias ao category.ejs, por ex.: subcategories.select('*').where('category_id', id)
+6. criar rota para renderizar subcategoria.ejs com slug
+
+Desafio 2:
+
+Publique o projeto GitHub e envie o link no Grupo de Alunos no Facebook.

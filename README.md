@@ -1,5 +1,5 @@
 # DEVSHOP - devpleno fullstack master semana 6
-Projeto devshop, loja para venda de produtos com banco de dados mysql, framework express e ejs
+Projeto devshop, loja para venda de produtos com banco de dados mysql, knex, framework express e ejs
 ## Banco de dados
 Arquivo de modelo - devshop.mwb
 
