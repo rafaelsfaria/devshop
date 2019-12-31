@@ -37,6 +37,12 @@ app.get('/categoria/:id/:slug', async (req, res) => {
   res.render('category', { categories, products, category: cat })
 })
 
+app.get('/produto/:id/:slug', async (req, res) => {
+  const categories = await category.getCategories(db)()
+  const prod = await product.getProductById(db)(req.params.id)
+  res.render('product-details', { categories, product: prod })
+})
+
 app.listen(port, (err) => {
   if (err) {
     console.log('Erro ao iniciar o servidor:', port)
