@@ -1,13 +1,12 @@
 const path = require('path')
 const express = require('express')
 const knex = require('knex')
-const slug = require('./utils/slug')
-const category = require('./models/category')
-const product = require('./models/product')
 
-const home = require('./controllers/home')
-const categories = require('./controllers/categories')
-const products = require('./controllers/products')
+const category = require('./models/category')
+
+const home = require('./routes/home')
+const categories = require('./routes/categories')
+const products = require('./routes/products')
 
 const db = knex({
   client: 'mysql2',
@@ -36,9 +35,9 @@ app.use(async (req, res, next) => {
   next()
 })
 
-app.get('/', home.getIndex)
-app.get('/categoria/:id/:slug', categories.getCategories(db))
-app.get('/produto/:id/:slug', products.getProduct(db))
+app.use(home())
+app.use(categories(db))
+app.use(products(db))
 
 app.listen(port, (err) => {
   if (err) {
