@@ -24,23 +24,27 @@ const port = process.env.PORT || 3000
 
 app.set('view engine', 'ejs')
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(async (req, res, next) => {
+  const categories = await category.getCategories(db)()
+  res.locals = {
+    categories
+  }
+  next()
+})
 
 app.get('/', async (req, res) => {
-  const categories = await category.getCategories(db)()
-  res.render('home', { categories })
+  res.render('home')
 })
 
 app.get('/categoria/:id/:slug', async (req, res) => {
-  const categories = await category.getCategories(db)()
   const cat = await category.getCategoryById(db)(req.params.id)
   const products = await product.getProductsByCategoryId(db)(req.params.id)
-  res.render('category', { categories, products, category: cat })
+  res.render('category', { products, category: cat })
 })
 
 app.get('/produto/:id/:slug', async (req, res) => {
-  const categories = await category.getCategories(db)()
   const prod = await product.getProductById(db)(req.params.id)
-  res.render('product-details', { categories, product: prod })
+  res.render('product-details', { product: prod })
 })
 
 app.listen(port, (err) => {
