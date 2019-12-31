@@ -4,9 +4,7 @@ const knex = require('knex')
 
 const category = require('./models/category')
 
-const home = require('./routes/home')
-const categories = require('./routes/categories')
-const products = require('./routes/products')
+const routes = require('./routes')
 
 const db = knex({
   client: 'mysql2',
@@ -35,9 +33,7 @@ app.use(async (req, res, next) => {
   next()
 })
 
-app.use(home())
-app.use(categories(db))
-app.use(products(db))
+app.use(routes(db))
 
 app.listen(port, (err) => {
   if (err) {
