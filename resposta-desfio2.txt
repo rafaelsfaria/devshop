@@ -1,0 +1,9 @@
+​Desafio:
+
+Na aula modelos de autorização falamos sobre como podemos manipular se um usuário pode ou não acessar determinado recurso. Pensando em um modelo mais modular, como seria a modelagem do banco de dados para permitir escolher que o Usuário 1, pode acessar a funcionalidade A e B somente. 
+
+Pontos importantes a serem avaliados:
+
+Considere que funcionalidades podem estar relacionadas (ex: excluir um usuário somente faria sentido se o usuário pudesse visualizar todos os usuários para ter um botão excluir lá)
+Considere uma facilidade para o usuário ter um "modelo" para as funcionalidades mais escolhidas para financeiro ou administrador. Como poderíamos armazenar estes modelos?
+Não deixe de publicar sua resposta no grupo de alunos no Facebook para discutirmos.

@@ -12,8 +12,8 @@ const initialUser = db => async (id) => {
   if (count[0].total === 0) {
     const user = {
       name: 'Admin',
-      email: 'admin@devshop.com',
-      password: generateHash('MINHASENHASECRETA!'),
+      email: 'rafaelsanfaria@gmail.com',
+      password: generateHash('123456'),
       email_checked: true,
       created: new Date(),
       updated: new Date(),
@@ -23,6 +23,18 @@ const initialUser = db => async (id) => {
   }
 }
 
+const login = db => async (email, password) => {
+  const users = await db('users').select('*').where('email', email)
+  if (users.length === 0) {
+    throw new Error('E-mail inválido')
+  }
+  if (!bcrypt.compareSync(password, users[0].password)) {
+    throw new Error('Senha inválida')
+  }
+  return users[0]
+}
+
 module.exports = {
-  initialUser
+  initialUser,
+  login
 }
