@@ -13,7 +13,9 @@ const init = (db) => {
   app.use(express.json())
   app.use(session({
     secret: 'MyDevShop',
-    name: 'sessionId'
+    name: 'sessionId',
+    resave: true,
+    saveUninitialized: true
   }))
 
   // middleware

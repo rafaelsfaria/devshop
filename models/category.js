@@ -11,7 +11,10 @@ const getCategories = (db) => async () => {
 
 const getCategoryById = (db) => async (id) => (await db('categories').select('*').where('id', id))
 
+const create = (db) => async (category) => (await db('categories').insert(category))
+
 module.exports = {
   getCategories,
-  getCategoryById
+  getCategoryById,
+  create
 }
