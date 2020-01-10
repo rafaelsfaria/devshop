@@ -8,7 +8,6 @@
   
   const initialUser = (db) => async () => {
     const count = await db('users').count('id as total')
-    console.log({count})
     if (count[0].total === 0) {
       const user = {
         name: 'Admin',
