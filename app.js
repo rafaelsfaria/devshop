@@ -4,7 +4,7 @@ const init = (db) => {
   const session = require('express-session')
   const app = express()
 
-  const category = require('./models/category')
+  const category = require('./models/category')(db)
   const routes = require('./routes')
   
   app.set('view engine', 'ejs')
@@ -20,7 +20,7 @@ const init = (db) => {
 
   // middleware
   app.use(async (req, res, next) => {
-    const categories = await category.getCategories(db)()
+    const categories = await category.getCategories()
     const { user } = req.session
     res.locals = {
       categories,

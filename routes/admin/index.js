@@ -1,5 +1,5 @@
 const init = (db) => {
-  const categories = require('./categories')
+  const categories = require('./categories')(db)
   const router = require('express').Router()
 
   // router.use((req, res, next) => {
@@ -15,7 +15,7 @@ const init = (db) => {
   // })
 
   router.get('/', (req, res) => res.render('admin/index'))
-  router.use('/categorias', categories(db))
+  router.use('/categorias', categories)
 
   return router
 }
