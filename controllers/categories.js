@@ -4,7 +4,7 @@ const init = db => {
   
   const getCategories = async (req, res) => {
     const cat = await category.getCategoryById(req.params.id)
-    const products = await product.getProductsByCategoryId(req.params.id)
+    const products = await product.getProductsByCategoryId(req.params.id, req.query)
     res.render('category', { products, category: cat })
   }
   
