@@ -1,0 +1,17 @@
+Desafio da semana
+​O desafio da semana consiste em refletir sobre o seguinte problema / restrição de implementação:
+
+Imagine que você tenha um banco de dados que não permita contar quantos registros uma query retorna. 
+A única informação que você consegue passar é a quantidade de registros que serão retornados e a partir de qual id você quer começar a retornar registros.
+
+Alguns fatos:
+
+Toda query sempre retornará o último id retornado.
+Ler todos os registros é uma operação cara no quesito recurso e seu provedor cobra por leituras neste banco (quanto menos leituras menos será seu custos;
+Perguntas:​
+
+Você acha que será possível fazer uma paginação como fizemos aqui no curso? Mostrando página 1, 2 e 3 por ex?
+Se não, qual seria uma possibilidade?
+Não é possível, porque não sabemos a quantidade total de registros no banco. Podemos apenas definir 1000 registros por leitura, e organizar em páginas posteriormente.
+Exemplo: 200 resultados em 5 páginas. Depois se quisermos mais, temos que fazer outra query com id > 1000 (por exemplo), para lermos os próximos 1000 registros.
+Publique suas considerações na comunidade de alunos no Facebook. Quanto mais discutirmos, mais aprenderemos ;)
